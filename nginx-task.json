@@ -1,0 +1,27 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "web",
+            "image": "jacksonlima91/frontend-nginx:v4",
+            "cpu": 100,
+            "memory": 100,
+            "essential": true,
+            "portMappings": [
+              {
+                "containerPort": 80,
+                "protocol": "tcp"
+              }                  
+            ],
+            "logConfiguration": {
+              "logDriver": "awslogs",
+              "options": {
+                "awslogs-group": "/ecs/nginx-task",
+                "awslogs-region": "us-east-1",
+                "awslogs-stream-prefix": "ecs"
+              }
+            }
+        }
+    ],
+    "networkMode": "awsvpc",
+    "family": "nginx-task"
+}

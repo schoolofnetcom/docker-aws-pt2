@@ -1,0 +1,27 @@
+{
+        "containerDefinitions": [
+            {
+                "name": "nginx",
+                "image": "nginx:latest",
+                "cpu": 100,
+                "memory": 512,
+                "essential": true,
+                "portMappings": [
+                  {
+                    "containerPort": 80,
+                    "protocol": "tcp"
+                  }                  
+                ],
+                "logConfiguration": {
+                  "logDriver": "awslogs",
+                  "options": {
+                    "awslogs-group": "/ecs/awsvpc-nginx",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                  }
+                }
+            }
+        ],
+        "networkMode": "awsvpc",
+        "family": "nginx-awsvpc"
+}

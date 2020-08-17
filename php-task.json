@@ -1,0 +1,19 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "app",
+            "image": "jacksonlima91/php-backend:v4",
+            "cpu": 100,
+            "memory": 100,
+            "essential": true,
+            "portMappings": [
+              {
+                "containerPort": 9000,
+                "hostPort": 9000,
+                "protocol": "tcp"
+              }                  
+            ]
+        }
+    ],
+    "family": "php-task-bridge"
+}

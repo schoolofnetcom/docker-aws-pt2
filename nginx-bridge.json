@@ -1,0 +1,19 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "nginx",
+            "image": "jacksonlima91/nginx-php-bridge:v2",
+            "cpu": 100,
+            "memory": 512,
+            "essential": true,
+            "portMappings": [
+              {
+                "hostPort": 80,
+                "containerPort": 80,
+                "protocol": "tcp"
+              }                  
+            ]
+        }
+    ],
+    "family": "nginx-bridge"
+}

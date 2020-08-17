@@ -1,0 +1,38 @@
+{
+	"containerDefinitions": [
+        {
+          "name": "app",
+          "image": "jacksonlima91/php-backend:v4",
+          "cpu": 100,
+          "memory": 100,
+          "portMappings": [
+            {
+              "containerPort": 9000
+            }
+          ],
+          "essential": true
+        },
+        {
+          "name": "web",
+          "image": "jacksonlima91/frontend-nginx:v5",
+          "cpu": 100,
+          "memory": 100,
+          "portMappings": [
+            {
+              "containerPort": 80
+            }
+          ],
+          "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+              "awslogs-group": "/ecs/awsvpc-containers",
+              "awslogs-region": "us-east-1",
+              "awslogs-stream-prefix": "ecs"
+            }
+        },
+          "essential": true
+        }
+      ],
+    "networkMode": "awsvpc",  
+	"family": "awsvpc-containers"
+}
